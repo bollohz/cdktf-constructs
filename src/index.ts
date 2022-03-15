@@ -1,5 +1,2 @@
-export class Hello {
-  public sayHello() {
-    return 'hello, world!';
-  }
-}
+/*export * from "./dp-s3-static-website";*/
+export * from "./dp-s3";

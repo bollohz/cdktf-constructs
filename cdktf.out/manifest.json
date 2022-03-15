@@ -1,0 +1,13 @@
+{
+  "version": "0.9.4",
+  "stacks": {
+    "test_constructs": {
+      "name": "test_constructs",
+      "constructPath": "test_constructs",
+      "workingDirectory": "stacks/test_constructs",
+      "synthesizedStackPath": "stacks/test_constructs/cdk.tf.json",
+      "annotations": [],
+      "dependencies": []
+    }
+  }
+}

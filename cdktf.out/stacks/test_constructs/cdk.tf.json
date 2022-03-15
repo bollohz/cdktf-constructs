@@ -1,0 +1,44 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "test_constructs",
+      "version": "0.9.4"
+    },
+    "outputs": {
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-central-1"
+      }
+    ]
+  },
+  "resource": {
+    "aws_s3_bucket": {
+      "test": {
+        "//": {
+          "metadata": {
+            "path": "test_constructs/test",
+            "uniqueId": "test"
+          }
+        },
+        "bucket_prefix": "test"
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/Users/b227wj/repos/axa/test_constructs/terraform.test_constructs.tfstate"
+      }
+    },
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "~> 3.0"
+      }
+    }
+  }
+}

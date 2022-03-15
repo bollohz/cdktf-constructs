@@ -144,6 +144,9 @@
       "steps": [
         {
           "spawn": "package:js"
+        },
+        {
+          "spawn": "package:python"
         }
       ]
     },
@@ -153,6 +156,15 @@
       "steps": [
         {
           "exec": "jsii-pacmak -v --target js"
+        }
+      ]
+    },
+    "package:python": {
+      "name": "package:python",
+      "description": "Create python language bindings",
+      "steps": [
+        {
+          "exec": "jsii-pacmak -v --target python"
         }
       ]
     },
@@ -175,7 +187,7 @@
     },
     "release": {
       "name": "release",
-      "description": "Prepare a release from \"main\" branch",
+      "description": "Prepare a release from \"master\" branch",
       "env": {
         "RELEASE": "true"
       },
@@ -250,25 +262,25 @@
       },
       "steps": [
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='cdktf,constructs,projen'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='cdktf,projen'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='cdktf,constructs,projen'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='cdktf,projen'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='cdktf,constructs,projen'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='cdktf,projen'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='cdktf,constructs,projen'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='cdktf,projen'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='cdktf,constructs,projen'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='cdktf,projen'"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdktf constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema npm-check-updates standard-version ts-jest typescript cdktf constructs"
+          "exec": "yarn upgrade @cdktf/provider-aws @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdktf-cli cdktf constructs eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema npm-check-updates prettier standard-version ts-jest ts-node typescript @cdktf/provider-aws cdktf constructs @cdktf/provider-aws constructs"
         },
         {
           "exec": "npx projen"
