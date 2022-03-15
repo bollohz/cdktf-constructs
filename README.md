@@ -19,3 +19,8 @@ This will update the code and create local `dist` folder with python and js paca
 - Javascript: Same as python but for Javascript! 
 - Typescript: CI Pipeline will directly run `yarn package` and create resulting TS library.
     After that CI will push it on Artifactory.
+
+
+# API 
+Please look at API Documentation here: 
+[API.md](API.md) 
