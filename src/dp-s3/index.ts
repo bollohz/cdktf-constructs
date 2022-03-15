@@ -1,9 +1,11 @@
 /*import { DataAwsDefaultTags } from "@cdktf/provider-aws";*/
 import { s3 } from "@cdktf/provider-aws";
 import { Construct } from "constructs";
-/*import Utils from "../lib/utils";*/
+// @ts-ignore
+import { ResourceNaming } from "../../.gen/modules/resource_naming";
+import { S3BucketConfig } from '@cdktf/provider-aws/lib/s3';
 
-export interface IDpS3Config {
+export interface IDpS3Config extends S3BucketConfig {
   prefix: string;
 }
 
@@ -18,8 +20,13 @@ export class DpS3 extends s3.S3Bucket {
   constructor(scope: Construct, name: string, config: IDpS3Config) {
     /*let defaultTags = new DataAwsDefaultTags(scope, "default_tags");
      let computedName = Utils.resourresourceNamingceNaming(name, defaultTags.tags);*/
-    super(scope, name, {
+    const resourceNaming = new ResourceNaming(scope, "resource_naming", {
+      resourceName: name,
+      resourceType: "s3_bucket"
+    })
+    super(scope, "s3_bucket", {
       bucketPrefix: config.prefix,
+      bucket: resourceNaming.composedResourceNameOutput
     });
   }
 }

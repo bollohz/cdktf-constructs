@@ -8,6 +8,19 @@
     "outputs": {
     }
   },
+  "module": {
+    "resource_naming": {
+      "//": {
+        "metadata": {
+          "path": "test_constructs/resource_naming",
+          "uniqueId": "resource_naming"
+        }
+      },
+      "resource_name": "test",
+      "resource_type": "s3_bucket",
+      "source": "git::https://github.axa.com/datalab-italy/dl-utilities//resource-naming?ref=master"
+    }
+  },
   "provider": {
     "aws": [
       {
@@ -17,13 +30,14 @@
   },
   "resource": {
     "aws_s3_bucket": {
-      "test": {
+      "s3_bucket": {
         "//": {
           "metadata": {
-            "path": "test_constructs/test",
-            "uniqueId": "test"
+            "path": "test_constructs/s3_bucket",
+            "uniqueId": "s3_bucket"
           }
         },
+        "bucket": "${module.resource_naming.composed_resource_name}",
         "bucket_prefix": "test"
       }
     }

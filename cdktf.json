@@ -3,9 +3,14 @@
   "app": "npx ts-node main.ts",
   "projectId": "7a56fd43-f43d-4e9e-bc98-50d77cd2e2d2",
   "terraformProviders": [],
-  "terraformModules": [],
+  "terraformModules": [
+    {
+      "name": "resource_naming",
+      "source": "git::https://github.axa.com/datalab-italy/dl-utilities//resource-naming?ref=master"
+    }
+  ],
   "context": {
     "excludeStackIdFromLogicalIds": "true",
-"allowSepCharsInLogicalIds": "true"
+    "allowSepCharsInLogicalIds": "true"
   }
 }
