@@ -1,4 +1,4 @@
-# DP_CDKTF_CONSTRUCTS
+# CDKTF_CONSTRUCTS
 
 In order to create local repository, please run:
 
