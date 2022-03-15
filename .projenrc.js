@@ -31,7 +31,7 @@ const project = new cdktf.ConstructLibraryCdktf({
   peerDeps: ["cdktf", "constructs", "@cdktf/provider-aws"],
   packageName: "@axa-datalab-it/dp-cdktf-constructs",
   prettier: true,
-  gitignore: ["/idea/", "/idea/*"],
+  gitignore: [".idea/", ".idea/*"],
   jest: true,
   license: "MIT",
   copyrightOwner: "Federico Bollotta",
