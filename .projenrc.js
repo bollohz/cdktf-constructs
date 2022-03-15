@@ -2,6 +2,19 @@ const { cdktf } = require("projen");
 const { NpmAccess } = require("projen/lib/javascript");
 const versionFile = require("./version.json");
 
+const scripts = {
+  "cdktf:synth": "cdktf synth",
+  "cdktf:build": "tsc",
+  "cdktf:compile": "tsc --pretty",
+  "cdktf:get": "cdktf get",
+  "cdktf:synth-all": "yarn run cdktf:compile && yarn run cdktf:synth",
+  "cdktf:watch": "tsc -w",
+  "cdktf:test:watch": "jest --watch",
+  "tacos:build": "yarn run build && yarn run cdktf:synth-all",
+  "cdktf:upgrade": "npm i cdktf@latest cdktf-cli@latest",
+  "upgrade:next": "npm i cdktf@next cdktf-cli@next",
+};
+
 const project = new cdktf.ConstructLibraryCdktf({
   author: "federico-bollotta",
   authorAddress: "federico.bollotta@axa.it",
@@ -37,15 +50,10 @@ const project = new cdktf.ConstructLibraryCdktf({
 });
 
 project.package.addVersion(versionFile.version);
-project.setScript("package:modules", "echo hcl modules..");
-project.setScript("cdktf:get", "cdktf get");
-project.setScript("cdktf:build", "tsc");
-project.setScript("cdktf:synth", "cdktf synth");
-project.setScript("cdktf:compile", "tsc --pretty");
-project.setScript("cdktf:watch", "tsc -w");
-project.setScript("cdktf:test:watch", "jest --watch");
-project.setScript("cdktf:upgrade", "npm i cdktf@latest cdktf-cli@latest");
-project.setScript("upgrade:next", "npm i cdktf@next cdktf-cli@next");
+
+for (const [k, v] of Object.entries(scripts)) {
+  project.setScript(k, v);
+}
 // ADD EXCLUDE AS CDKTF DO
 project.tsconfigDev.addExclude("cdktf.out");
 project.addExcludeFromCleanup("cdktf.out");

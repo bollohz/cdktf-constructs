@@ -31,7 +31,7 @@
   "terraform": {
     "backend": {
       "local": {
-        "path": "/Users/b227wj/repos/axa/test_constructs/terraform.test_constructs.tfstate"
+        "path": "/Users/b227wj/repos/axa/dp-cdktf-constructs/terraform.test_constructs.tfstate"
       }
     },
     "required_providers": {
