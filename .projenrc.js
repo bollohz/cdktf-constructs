@@ -10,7 +10,8 @@ const scripts = {
   "cdktf:synth-all": "yarn run cdktf:compile && yarn run cdktf:synth",
   "cdktf:watch": "tsc -w",
   "cdktf:test:watch": "jest --watch",
-  "tacos:build": "yarn run eslint && yarn run build && yarn run cdktf:synth-all",
+  "tacos:build":
+    "yarn run eslint && yarn run build && yarn run cdktf:synth-all",
   "cdktf:upgrade": "npm i cdktf@latest cdktf-cli@latest",
   "upgrade:next": "npm i cdktf@next cdktf-cli@next",
 };

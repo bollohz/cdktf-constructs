@@ -3,9 +3,8 @@ import { s3 } from "@cdktf/provider-aws";
 import { Construct } from "constructs";
 // @ts-ignore
 import { ResourceNaming } from "../../.gen/modules/resource_naming";
-import { S3BucketConfig } from '@cdktf/provider-aws/lib/s3';
 
-export interface IDpS3Config extends S3BucketConfig {
+export interface IDpS3Config {
   prefix: string;
 }
 
@@ -22,11 +21,11 @@ export class DpS3 extends s3.S3Bucket {
      let computedName = Utils.resourresourceNamingceNaming(name, defaultTags.tags);*/
     const resourceNaming = new ResourceNaming(scope, "resource_naming", {
       resourceName: name,
-      resourceType: "s3_bucket"
-    })
+      resourceType: "s3_bucket",
+    });
     super(scope, "s3_bucket", {
       bucketPrefix: config.prefix,
-      bucket: resourceNaming.composedResourceNameOutput
+      bucket: resourceNaming.composedResourceNameOutput,
     });
   }
 }
